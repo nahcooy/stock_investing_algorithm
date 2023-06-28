@@ -4,9 +4,9 @@
 ## 디렉토리설명
 ### 주식데이터크롤링
 주식 데이터를 크롤링하는 코드 위주
-#### Listed_Stock_Data_Crawling.py
+#### -Listed_Stock_Data_Crawling.py
 stock_code_crawling 함수 = krx에서 현재 상장되있는 모든 주식의 회사명, 종목코드, 상장일 데이터를 크롤링해서 csv파일로 저장한다
-#### Stock_Info_Crawling.py
+#### -Stock_Info_Crawling.py
 특정 주식의 상장일부터의 날짜, 시가, 고가, 저가, 종가, 거래량, 전날대비 변화율 크롤링 후 csv파일로 저장한다
 
 ### 주식데이터전처리
