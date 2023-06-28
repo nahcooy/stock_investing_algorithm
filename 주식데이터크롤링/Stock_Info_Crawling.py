@@ -40,7 +40,7 @@ def save_stock_data_to_csv(stock_name):
 
 def main():
     stock_name = input("일별 주가 정보를 CSV파일로 저장할 주식의 이름을 입력하세요: ")
-    df = save_graph_data_to_csv(stock_name)
+    df = save_stock_data_to_csv(stock_name)
 
     if df is not None:
         # 주식 데이터를 활용한 그래프 그리기 등의 작업 수행
