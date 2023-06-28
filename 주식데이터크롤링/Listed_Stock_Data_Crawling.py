@@ -13,13 +13,13 @@ def stock_code_crawling():
     return
 
 def stock_name_checker(stockname):
-    stock_codes = pd.read_csv('stock_codes.csv')
+    stock_codes = pd.read_csv('../stock_codes.csv')
     if stockname not in stock_codes['company'].values:
         return False
     else:
         return True
 
 def find_stock_code(stock_name):
-    stock_codes = pd.read_csv('stock_codes.csv')
+    stock_codes = pd.read_csv('../stock_codes.csv')
     code = stock_codes.loc[stock_codes['company'] == stock_name, 'code'].iloc[0]
     return code
