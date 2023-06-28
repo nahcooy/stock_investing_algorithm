@@ -13,7 +13,7 @@ def save_stock_data_to_csv(stock_name):
         print(f'CSV 파일이 존재하지 않습니다: {csv_filename}')
 
     # CSV 파일에서 종목 정보를 읽어옴
-    stock_codes = pd.read_csv('stock_codes.csv')
+    stock_codes = pd.read_csv('../stock_codes.csv')
 
     try:
         # 주식 이름에 해당하는 종목 코드 조회
