@@ -33,7 +33,7 @@ def save_stock_data_to_csv(stock_name):
 
     # CSV 파일로 저장
     df.to_csv(csv_filename, index=False)
-    print(f'그래프 데이터가 {csv_filename} 파일로 저장되었습니다.')
+    print(f'일별 데이터가 {csv_filename} 파일로 저장되었습니다.')
 
     return df
 
