@@ -35,7 +35,7 @@ def day2weekNmonth(stock_name):
     monthly_data.to_csv(f'{stock_name}_month.csv', index=True)
 
 def main():
-    stock_name = input("일, 주, 월별 주가 정보를 CSV파일로 저장할 주식의 이름을 입력하세요: ")
+    stock_name = input("일, 주, 월별 주가 정보를 CSV파일로 저장할 주식의 이름을 입력하세요: ").strip()
     day2weekNmonth(stock_name)
 
 if __name__=="__main__":
