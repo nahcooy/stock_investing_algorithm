@@ -15,7 +15,13 @@ stock_code_crawling 함수 = krx에서 현재 상장되있는 모든 주식의 �
 크롤링된 데이터를 바탕으로 새로운 지표를 생성하는 코드
 
 #### -day2weekNmonth.py
-Stock_Info_Crawling.py에서 생성된 일별 주가 정보 csv파일를 바탕으로 주별, 월별 주가 csv파일 추가로 생성
+Stock_Info_Crawling.py에서 생성된 일별 주가 정보 csv파일를 바탕으로 주별, 월별 주가 csv파일 추가로 생성  
+#### -Moving_Average.py
+특정 주식에 사용자가 원하는 기간의 이동평균선을 생성한다
+default 기간 = ma_005,ma_010,ma_020,ma_060,ma_120,ma_240
 #### -macd.py
 특정 주식에 사용자가 원하는 기간을 가진 이동평균선을 기준으로 macd, signal, histogram을 생성한다  
 default 기간 = short_period=12, long_period=26, signal_period=9
+#### -Bollinger_Band.py
+특정 주식에 사용자가 원하는 기간과 표준편차를 가진 볼린저 밴드를 생성한다  
+default = period=20, num_std=2
