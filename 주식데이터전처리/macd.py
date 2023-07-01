@@ -23,18 +23,19 @@ def calculate_macd(data, short_period=12, long_period=26, signal_period=9):
 def create_macd_data(stock_name):
     df = Stock_Info_Crawling.save_stock_data_to_csv(stock_name)
     price_data = pd.Series(df['Close'])
+    date_data = pd.Series(df['Date'])
 
     # MACD 계산
     macd, signal, histogram = calculate_macd(price_data)
 
     # 데이터프레임 생성
-    df_macd = pd.DataFrame({'macd': macd, 'signal': signal, 'histogram': histogram})
+    df_macd = pd.DataFrame({'Date': date_data, 'macd': macd, 'signal': signal, 'histogram': histogram})
 
     # CSV 파일로 저장
     df_macd.to_csv(f'{stock_name}_macd.csv', index=False)
 
 def main():
-    stock_name = input("macd 정보를 추가할 주식 이름을 입력해주세요: ")
+    stock_name = input("macd 정보를 추가할 주식 이름을 입력해주세요: ").strip()
     create_macd_data(stock_name)
 
 if __name__=="__main__":
