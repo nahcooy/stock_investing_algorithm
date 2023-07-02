@@ -18,6 +18,8 @@ def calculate_ARIMA_pdq(data):
     )
 
     print(model)
+    print(model.summary())
+    print(model.plot_diagnostics())
 
 def main():
     stock_name = input("주식 이름 입력해주세요: ")
