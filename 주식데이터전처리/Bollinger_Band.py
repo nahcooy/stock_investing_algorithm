@@ -7,7 +7,7 @@ def calculate_bollinger_bands(data, period=20, num_std=2):
     # 이동평균 계산
     ma = data.rolling(window=period).mean()
     # 표준편차 계산
-    std = data.rolling(window=period).std()
+    std = data.rADF_test.pyolling(window=period).std()
     # 상단 볼린저 밴드 계산
     upper_band = ma + (num_std * std)
     # 하단 볼린저 밴드 계산
