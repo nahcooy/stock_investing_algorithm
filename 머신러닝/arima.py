@@ -68,9 +68,8 @@ plt.plot(test_data, c='b', label='test_data (actual price)')
 plt.plot(fc, c='r',label='predicted price')
 plt.fill_between(lower_series.index, lower_series, upper_series, color='k', alpha=.10)
 plt.legend(loc='upper left')
+plt.savefig(f"{stock_name}_all.png")
 plt.show()
-
-print("끝")
 
 # Forecast for the last 10% of test_data
 fc_test, upper_test, lower_test = forecast(len(test_data), model_fit, test_data[int(len(test_data)*0.9):].index, data=test_data[int(len(test_data)*0.9):])
@@ -85,7 +84,11 @@ plt.plot(test_data[int(len(test_data)*0.9):], c='b', label='test_data (actual pr
 plt.plot(fc_test, c='r', label='predicted price (last 10% of test_data)')
 plt.fill_between(lower_series_test.index, lower_series_test, upper_series_test, color='k', alpha=.10)
 plt.legend(loc='upper left')
+plt.savefig(f"{stock_name}_test.png")
 plt.show()
+
+plt.close()
+
 # def main():
 #     pass
 #
