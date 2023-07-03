@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import Stock_Info_Crawling
+
 
 def show_macdNclose(close, macd):
     # Date 컬럼을 datetime 형식으로 변환
@@ -33,6 +35,7 @@ def show_macdNclose(close, macd):
     plt.show()
 
     return
+
 
 def show_macdNclose_period(close, macd, period):
     # Date 컬럼을 datetime 형식으로 변환
@@ -102,6 +105,7 @@ def show_macdNclose_period(close, macd, period):
 
     return
 
+
 def find_macd_sign_change_dates(macd):
     change_dates = []
 
@@ -112,6 +116,7 @@ def find_macd_sign_change_dates(macd):
 
     return change_dates
 
+
 def show_macdNclose_with_markers(stock_name, close, macd, period):
     close['Date'] = pd.to_datetime(close['Date'])
     macd['Date'] = pd.to_datetime(macd['Date'])
@@ -121,13 +126,15 @@ def show_macdNclose_with_markers(stock_name, close, macd, period):
     change_dates = find_macd_sign_change_dates(macd)
     i = 0
     for date in change_dates:
-        selected_data = merged_data[(merged_data['Date'] >= date - pd.DateOffset(days=period)) & (merged_data['Date'] <= date + pd.DateOffset(days=period))]
+        selected_data = merged_data[(merged_data['Date'] >= date - pd.DateOffset(days=period)) & (
+                    merged_data['Date'] <= date + pd.DateOffset(days=period))]
 
         plt.figure(figsize=(12, 6))
 
         plt.subplot(2, 1, 1)
         plt.plot(selected_data['Date'], selected_data['Close'], color='blue', label='Price')
-        plt.scatter(date, selected_data.loc[selected_data['Date'] == date, 'Close'], color='green', marker='o', s=100, label='Change Date')
+        plt.scatter(date, selected_data.loc[selected_data['Date'] == date, 'Close'], color='green', marker='o', s=100,
+                    label='Change Date')
         plt.title('Stock Price')
         plt.ylabel('Price')
         plt.legend()
@@ -136,7 +143,8 @@ def show_macdNclose_with_markers(stock_name, close, macd, period):
         plt.plot(selected_data['Date'], selected_data['macd'], color='red', label='MACD')
         plt.plot(selected_data['Date'], selected_data['signal'], color='green', label='Signal')
         plt.bar(selected_data['Date'], selected_data['histogram'], color='gray', label='Histogram')
-        plt.scatter(date, selected_data.loc[selected_data['Date'] == date, 'macd'], color='green', marker='o', s=100, label='Change Date')
+        plt.scatter(date, selected_data.loc[selected_data['Date'] == date, 'macd'], color='green', marker='o', s=100,
+                    label='Change Date')
 
         plt.title('MACD')
         plt.ylabel('MACD')
@@ -150,8 +158,11 @@ def show_macdNclose_with_markers(stock_name, close, macd, period):
 
     return
 
+
 def main():
     stock_name = input("종가와 macd 그래프를 생성할 주식의 이름을 입력하세요: ")
+    Stock_Info_Crawling.save_stock_data_to_csv(stock_name)
+
     close = pd.read_csv(f'{stock_name}_day.csv')
     macd = pd.read_csv(f'{stock_name}_macd.csv')
 
@@ -160,6 +171,6 @@ def main():
 
     return
 
-if __name__=="__main__":
-    main()
 
+if __name__ == "__main__":
+    main()
